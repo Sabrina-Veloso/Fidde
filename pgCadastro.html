@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Dados para assinatura</title>
+
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin-left: 23px;
+        }
+        
+        h1 {
+            font-size: 16px;
+            color: #123463;
+            margin-top: 38px;
+            margin-left: 60px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            color: #123463;
+            margin-top: 38px;
+        }
+        
+        h3 {
+            font-size: 16px;
+            color: #123463;
+            margin-top: 32px;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-top: 3px;
+        }
+        
+        label {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #3E3E3E;
+        }
+        
+        #linha1 {
+            height: 1px;
+            width: 312px;
+            background-color: #CCCCCC;
+            margin-top: 3px;
+        }
+        
+        #linha2 {
+            height: 1px;
+            width: 312px;
+            background-color: #CCCCCC;
+            margin-top: 3px;
+        }
+        
+        #escolherDocumento {
+            height: 40px;
+            width: 319px;
+        }
+        
+        #numeroCPFECNPJ {
+            height: 40px;
+            width: 319px;
+        }
+        
+        #numeroDoCartao {
+            height: 40px;
+            width: 319px;
+        }
+        
+        #nome {
+            height: 40px;
+            width: 319px;
+        }
+        
+        #campoValidade {
+            height: 40px;
+            width: 319px;
+        }
+        
+        #codigoDeSeguranca {
+            height: 40px;
+            width: 319px;
+        }
+        
+        #nomePacotePreco {
+            color: #123463;
+            margin-left: 150px;
+        }
+        
+        #botaoAssinarPacote {
+            height: 56px;
+            width: 275px;
+            border-radius: 30px;
+            margin-top: 30px;
+            margin-left: 77px;
+            background-color: #69CDA7;
+            color: white;
+        }
+        
+        #botaoVoltar {
+            background-color: transparent;
+            border: none;
+            margin-top: 30px;
+        }
+        
+        #mensagemdeErro1 {
+            color: red;
+        }
+        
+        #mensagemdeErro2 {
+            color: red;
+        }
+        
+        #mensagemdeErro3 {
+            color: red;
+        }
+        
+        #mensagemdeErro4 {
+            color: red;
+        }
+        
+        #mensagemdeErro5 {
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <button type="button" id="botaoVoltar" value="" onclick="voltar()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABCElEQVRIieXWMW4CQQwF0O9QcohcY30KygiJLuEAM/dY7wWIgghVmhxj3KZACkJIiEvQ0ixSKnbHtlIkrr3zNNLO1wf+20yiD0wpzZj5UVWP9/YeItGc84KIPgBMh3bD4JzzE4BXAMuu6z6H9ikQ3QBYishmzDdu2IK6YSvqgj2oGfaigOEd31AiehGRdwsKVN74J9q2rRmtgiPR0XA0OgpOKc36GHwWkW0ECgRndc0M/tWqumfmA4A1M59LKV+/AgNAKWXX429R+Oh3HI1XBUgkXp1cUbip+kTg5s7lxV1lz4O7W6YVD6m3FjysV/f4CcCqaZqdqn7f2w/NahHZEtEcwCXy3L8xVyK+sQ25FHFzAAAAAElFTkSuQmCC"></button>
+
+    <h1>Informe os dados para </br>completar a sua assinatura</h1>
+
+
+    <form class="row g-3 needs-validation" name="formulario" novalidate>
+
+        <div id="detalhesDoPagador">
+            <h2>Detalhes do Pagador</h2>
+            <div id="linha1"></div>
+            <p>Este pagamento é processado pelo MercadoPago,</br> e o e-mail exemplo@gmail.com será utilizado para </br> envio do comprovante de transação.</p>
+
+
+
+            <div class="escolhaDeDocumento">
+                <label for="validationDefault04" class="form-label"> <strong>Documento</strong></label>
+                <select class="form-select" id="escolherDocumento" required>
+                    <option>CPF</option>
+                    <option>CNPJ</option>
+            </select>
+            </div>
+
+            <div class="numeroDoDocumento">
+                <label for="validationDefault04" class="form-label"><strong>Número do Documento</strong></label> </br>
+                <input type="text" class="form-control" id="numeroCPFECNPJ" value="" maxlength="18" required>
+                <div id="mensagemdeErro1"></div>
+            </div>
+
+        </div>
+
+        <div id="detalhesdoCartao">
+            <h3>Detalhes do Cartão</h3>
+            <div id="linha2"></div>
+
+            <label for="validationDefault04" class="form-label"><strong>Número do Cartão</strong></label> </br>
+            <input type="text" class="form-control" id="numeroDoCartao" value="" maxlength="16" required> </br>
+            <div id="mensagemdeErro2"></div>
+
+            <label for="validationDefault04" class="form-label"><strong>Nome igual ao do cartão</strong></label> </br>
+            <input type="text" class="form-control" id="nome" onkeydown="return /[a-z]/i.test(event.key)" required> </br>
+            <div id="mensagemdeErro3"></div>
+
+            <label for="validationDefault04" class="form-label"><strong>Validade</strong></label> </br>
+            <input type="text" maxlength="5" class="form-control" id="campoValidade" required> </br>
+            <div id="mensagemdeErro4"></div>
+
+            <label for="validationDefault04" class="form-label"><strong>Código de Segurança</strong></label> </br>
+            <input type="text" maxlength="3" class="form-control" id="codigoDeSeguranca" required> </br>
+            <div id="mensagemdeErro5"></div>
+
+        </div>
+
+        <div id="nomePacotePreco">Valor Total .......</br>R$</div>
+
+        <input type="submit" class="btn btn-light" id="botaoAssinarPacote" value="Assinar" onclick="assinar()">
+
+    </form>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // mask do formulario
+        $("#numeroCPFECNPJ").mask("00.000.000/0000-01");
+        $("#numeroDoCartao").mask("0000 0000 0000 0000");
+        $("#campoValidade").mask("00/00");
+        $("#codigoDeSeguranca").mask("000");
+
+
+
+
+        //Botão assinar
+        function assinar() {
+            (function() {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                    .forEach(function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            })()
+
+            let seguranca = document.getElementById("codigoDeSeguranca");
+            let validade = document.getElementById("campoValidade");
+            let nome = document.getElementById("nome");
+            let numeroDoCartao = document.getElementById("numeroDoCartao");
+            let numeroDoDocumento = document.getElementById("numeroCPFECNPJ");
+            let escolha = document.getElementById("escolherDocumento");
+
+
+            if (numeroDoDocumento.value == "") {
+                mensagemdeErro1.innerText = "Número do Documento não informado";
+                numeroDoDocumento.focus();
+                return;
+            } else {
+                mensagemdeErro1.innerText = "";
+            }
+            if (numeroDoCartao.value == "") {
+
+                mensagemdeErro2.innerText = "Número do cartão não informado";
+                numeroDoCartao.focus();
+                return;
+            } else {
+                mensagemdeErro2.innerText = "";
+            }
+
+            if (nome.value == "") {
+
+                mensagemdeErro3.innerText = "Nome não informado";
+                nome.focus();
+                return;
+            } else {
+                mensagemdeErro3.innerText = "";
+            }
+            if (validade.value == "") {
+
+                mensagemdeErro4.innerText = "Validade não informado";
+                validade.focus();
+                return;
+            } else {
+                mensagemdeErro4.innerText = "";
+            }
+            if (seguranca.value == "") {
+
+                mensagemdeErro5.innerText = "Código de Segurança não informado";
+                seguranca.focus();
+                return;
+            } else {
+                mensagemdeErro5.innerText = "";
+            }
+
+
+            Swal.fire({
+                title: 'Plano Premium assinado com sucesso!',
+                color: '#123463',
+                imageUrl: '/img/Group.png',
+                imageWidth: 160,
+                imageHeight: 130,
+                confirmButtonColor: '#69CDA7',
+                confirmButtonText: 'Começar a usar',
+
+            }).then((result) => {
+
+                if (result.isConfirmButton) {
+
+                }
+            })
+
+        }
+
+
+        //Aqui a seta que se encontra na parte superior vai voltar uma página
+        function voltar() {
+            window.history.go(-1);
+        };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>fidde</title>
+
+
+    <style>
+        body {
+            margin-left: 18px;
+        }
+        
+        #btnGratuito {
+            color: #69CDA7;
+            background-color: #ffffff;
+        }
+        
+        #big {
+            margin-top: -119px;
+            position: absolute;
+            left: 200px;
+        }
+        
+        #premium {
+            margin-top: -119px;
+            position: absolute;
+            left: 380px;
+        }
+        
+        #botaoMedium {
+            margin-top: 5px;
+            width: 98.83px;
+            height: 56px;
+            border-radius: 15px;
+            background-color: #69CDA7;
+            border-style: none;
+            font: 16px;
+        }
+        
+        #botaoBig {
+            margin-top: 5px;
+            width: 98.83px;
+            height: 56px;
+            border-radius: 15px;
+            background-color: #69CDA7;
+            border-style: none;
+            font: 16px;
+        }
+        
+        #botaoPremium {
+            margin-top: 5px;
+            width: 98.83px;
+            height: 56px;
+            border-radius: 15px;
+            background-color: #69CDA7;
+            border-style: none;
+            font: 16px;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <h1>Escolha o melhor plano </br> para o seu negócio</h1>
+
+    <div id="planoGratuito">
+        <h2>Você já pode utilizar o plano gratuito </br> do fidde</h2>
+        <p><img src="/img/carraca.png" alt="" width="16px"> Tenha até 20 clientes ativos</p>
+        </br>
+        <p><img src="/img/carraca.png" alt="" width="16px"> Crie e personalize o seu cartão de fidelidade</p>
+        </br>
+        <p><img src="/img/carraca.png" alt="" width="16px"> Lance selos através do aplicativo</p>
+        </br>
+        <p><img src="/img/carraca.png" alt="" width="16px"> Faça o resgate do cartão do seus clientes de forma prática e fácil</p>
+        </br>
+    </div>
+
+    <div id="tabelaDePrecos">
+        <h3>Mais Planos</h3>
+        <button type="button" class="btn btn-success" class="text-white bg-dark" id="botaoMedium" onclick="irParaPlanoMedium()">Medium</button>
+        <button type="button" class="btn btn-success" class="text-white bg-dark" id="botaoBig" onclick="irParaPlanoBig()">Big</button>
+        <button type="button" class="btn btn-success" class="text-white bg-dark" id="botaoPremium" onclick="irParaPlanoPremium()">Premium</button>
+
+        <p class="text-secondary">Preço por mês</p>
+
+        <div id="medium">
+            <p id="precoMedium">R$ 9,99</p>
+            <p id="clientesMedium">100</p>
+            <p id="promocoesMedium">3</p>
+        </div>
+
+        <div id="big">
+            <p id="precoBig">R$ 39,90</p>
+            <div id="linha1"></div>
+            <p class="text-secondary">Clientes ativos</p>
+            <p id="clientesBig">500</p>
+            <div id="linha1"></div>
+            <p class="text-secondary">Número de Promoções</p>
+            <p id="promocoesMedium">Sem Limites</p>
+
+        </div>
+
+        <div id="premium">
+            <p id="precoPremium">R$ 59,90</p>
+            <p id="clientesMedium">1000</p>
+
+        </div>
+
+    </div>
+
+    <button type="button" class="btn btn-success">Clique!</button> </br>
+    <button type="button" id="btnGratuito" class="btn btn-light"> Continuar com o plano gratuito</button>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        var titulo = document.getElementById('precoMedium');
+
+        function irParaPlanoMedium() {
+            titulo.style.color = 'red';
+            titulo.style.textAlign = 'justify';
+        }
+    </script>
+
+
+</body>
+
+</html>
